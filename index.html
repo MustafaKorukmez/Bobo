@@ -2,217 +2,141 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BOBO Oto Yol Yardım</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Preconnect & Preload -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="img/hero.jpg">
+
+  <!-- 1. SEO: Title ve Description -->
+  <title>Biga Oto Yol Yardım & Çekici Hizmeti | 7/24 Biga Çekici</title>
+  <meta name="description"
+        content="Biga, Lapseki ve Çan ilçelerinde 7/24 profesyonel oto yol yardım ve çekici hizmeti. Biga çekici için hemen arayın: 0546 206 77 68." />
+
+  <!-- 2. Canonical -->
+  <link rel="canonical" href="https://boboyolyardim.xyz/" />
+
+  <!-- 3. Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Biga Oto Yol Yardım & Çekici Hizmeti" />
+  <meta property="og:description" content="Biga’da 7/24 çekici, akü takviye, lastik değişimi ve yol yardımı. Hemen arayın!" />
+  <meta property="og:url"         content="https://boboyolyardim.xyz/" />
+  <meta property="og:image"       content="https://boboyolyardim.xyz/img/hero.jpg" />
+
+  <!-- 4. Structured Data: LocalBusiness JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "BOBO Oto Yol Yardım",
+    "description": "Biga, Lapseki ve Çan ilçelerinde 7/24 oto yol yardım ve çekici hizmeti.",
+    "url": "https://boboyolyardim.xyz/",
+    "telephone": "+905462067768",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Biga",
+      "addressRegion": "Çanakkale",
+      "streetAddress": "—"
+    },
+    "openingHours": "Mo–Su 00:00–23:59",
+    "image": "https://boboyolyardim.xyz/img/hero.jpg"
+  }
+  </script>
+
+  <!-- 5. Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Anasayfa",   "item": "https://boboyolyardim.xyz/" },
+      { "@type": "ListItem", "position": 2, "name": "Hizmetler",  "item": "https://boboyolyardim.xyz/#hizmetler" }
+    ]
+  }
+  </script>
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
   <!-- Inline CSS -->
   <style>
     /* Reset & Base */
     * { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Open Sans', sans-serif;
-      color: #111; background: #fff; line-height:1.6;
-    }
+    body { font-family:'Open Sans',sans-serif; color:#111; background:#fff; line-height:1.6; }
     .container { width:90%; max-width:1200px; margin:0 auto; }
-    section[id] { scroll-margin-top: 80px; }
+    section[id] { scroll-margin-top:80px; }
 
     /* Header */
-    .header {
-      position: fixed; top:0; left:0; right:0;
-      background:#fff; border-bottom:1px solid #eee; z-index:1000;
-    }
-    .header .container {
-      display:flex; align-items:center; justify-content:space-between;
-      padding:1rem 0;
-    }
-    .logo {
-      font-family:'Montserrat', sans-serif;
-      font-size:1.5rem; color:#E94B35; text-decoration:none;
-    }
-    .nav-menu {
-      list-style:none; display:flex; gap:1.5rem;
-    }
-    .nav-menu li a {
-      text-decoration:none; color:#111; font-weight:600;
-    }
-    .phone a {
-      text-decoration:none; color:#111; font-weight:700;
-    }
-    .nav-toggle {
-      display:none; flex-direction:column; gap:4px;
-      background:none; border:none;
-    }
-    .nav-toggle span {
-      display:block; width:25px; height:3px;
-      background:#111; border-radius:2px;
-    }
+    .header { position:fixed; top:0; left:0; right:0; background:#fff; border-bottom:1px solid #eee; z-index:1000; }
+    .header .container { display:flex; align-items:center; justify-content:space-between; padding:1rem 0; }
+    .logo { font-family:'Montserrat',sans-serif; font-size:1.5rem; color:#E94B35; text-decoration:none; }
+    .nav-menu { list-style:none; display:flex; gap:1.5rem; }
+    .nav-menu li a { text-decoration:none; color:#111; font-weight:600; }
+    .phone a { text-decoration:none; color:#111; font-weight:700; }
+    .nav-toggle { display:none; flex-direction:column; gap:4px; background:none; border:none; }
+    .nav-toggle span { display:block; width:25px; height:3px; background:#111; border-radius:2px; }
 
     /* Mobil CTA Bar */
-    .cta-bar {
-      display:none; position:fixed; bottom:0; left:0; right:0;
-      background:#E94B35; text-align:center; padding:.75rem 0;
-      z-index:1000;
-    }
-    .cta-bar a {
-      color:#fff; text-decoration:none; font-weight:600;
-    }
+    .cta-bar { display:none; position:fixed; bottom:0; left:0; right:0; background:#E94B35; text-align:center; padding:.75rem 0; z-index:1000; }
+    .cta-bar a { color:#fff; text-decoration:none; font-weight:600; }
 
     /* Hero */
-    .hero {
-      position:relative; margin-top:70px;
-      height:calc(100vh - 70px);
-      background:url('img/hero.jpg') center/cover no-repeat;
-    }
-
-    @media screen and (max-width: 768px){
-      .hero {
-        background:url('img/mobile-hero.jpg') center/cover no-repeat;
-      }
-    }
-
-    .hero-overlay {
-      position:absolute; top:0; left:0; right:0; bottom:0;
-      background:rgba(0,0,0,0.5);
-    }
-    .hero-content {
-      position:relative; color:#fff; text-align:center;
-      top:50%; transform:translateY(-50%);
-    }
-    .hero-content h1 {
-      font-family:'Montserrat',sans-serif;
-      font-size:2.5rem; margin-bottom:1rem;
-    }
-    .hero-content p {
-      margin-bottom:1.5rem; font-size:1.1rem;
-    }
-    .btn {
-      display:inline-block; background:#E94B35; color:#fff;
-      padding:.75rem 1.5rem; text-decoration:none; font-weight:600;
-      border-radius:4px;
-    }
+    .hero { position:relative; margin-top:70px; height:calc(100vh - 70px); background:url('img/hero.jpg') center/cover no-repeat; }
+    @media (max-width:768px) { .hero { background:url('img/mobile-hero.jpg') center/cover no-repeat; } }
+    .hero-overlay { position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); }
+    .hero-content { position:relative; color:#fff; text-align:center; top:50%; transform:translateY(-50%); }
+    .hero-content h1 { font-family:'Montserrat',sans-serif; font-size:2.5rem; margin-bottom:1rem; }
+    .hero-content p { margin-bottom:1.5rem; font-size:1.1rem; }
+    .btn { display:inline-block; background:#E94B35; color:#fff; padding:.75rem 1.5rem; text-decoration:none; font-weight:600; border-radius:4px; }
 
     /* Services */
     .services { padding:4rem 0; }
-    .services h2 {
-      text-align:center; margin-bottom:2rem;
-      font-size:1.75rem; font-family:'Montserrat',sans-serif;
-    }
-    .services-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:2rem;
-    }
-    .service-card {
-      background:#f9f9f9; padding:2rem;
-      text-align:center; border-radius:8px;
-    }
-    .service-card img {
-      width:60px; margin-bottom:1rem;
-    }
-    .service-card h3 {
-      margin-bottom:.5rem; font-size:1.2rem;
-    }
-    .service-card p {
-      font-size:.95rem; color:#555;
-    }
+    .services h2 { text-align:center; margin-bottom:2rem; font-size:1.75rem; font-family:'Montserrat',sans-serif; }
+    .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; }
+    .service-card { background:#f9f9f9; padding:2rem; text-align:center; border-radius:8px; }
+    .service-card svg { width:60px; height:60px; margin-bottom:1rem; color:#E94B35; }
+    .service-card h3 { margin-bottom:.5rem; font-size:1.2rem; }
+    .service-card p { font-size:.95rem; color:#555; }
 
     /* Region */
     .region { padding:4rem 0; text-align:center; }
-    .region h2 {
-      font-size:1.75rem; margin-bottom:1.5rem;
-    }
-    .map-placeholder {
-      width:100%; height:300px; background:#eee;
-      display:flex; align-items:center; justify-content:center;
-      border-radius:8px; margin-bottom:1rem;
-    }
+    .region h2 { font-size:1.75rem; margin-bottom:1.5rem; }
     .region p { font-weight:600; }
 
     /* Why Us */
     .why-us { padding:4rem 0; }
-    .why-us h2 {
-      text-align:center; margin-bottom:2rem;
-      font-size:1.75rem;
-    }
-    .why-list {
-      list-style:none; display:flex;
-      flex-direction:column; gap:1rem;
-      max-width:500px; margin:0 auto; font-size:1.1rem;
-    }
+    .why-us h2 { text-align:center; margin-bottom:2rem; font-size:1.75rem; }
+    .why-list { list-style:none; display:flex; flex-direction:column; gap:1rem; max-width:500px; margin:0 auto; font-size:1.1rem; }
 
     /* Testimonials */
     .testimonials { padding:4rem 0; }
-    .testimonials h2 {
-      text-align:center; margin-bottom:2rem;
-      font-size:1.75rem;
-    }
-    .testimonial-card {
-      background:#f9f9f9; padding:1.5rem;
-      border-radius:8px; margin-bottom:1rem;
-    }
-    .testimonial-card p {
-      font-style:italic; margin-bottom:.5rem;
-    }
-    .testimonial-card span {
-      font-weight:600; font-size:.9rem;
-    }
+    .testimonials h2 { text-align:center; margin-bottom:2rem; font-size:1.75rem; }
+    .testimonial-card { background:#f9f9f9; padding:1.5rem; border-radius:8px; margin-bottom:1rem; }
+    .testimonial-card p { font-style:italic; margin-bottom:.5rem; }
+    .testimonial-card span { font-weight:600; font-size:.9rem; }
 
     /* About */
     .about { padding:4rem 0; }
-    .about h2 {
-      text-align:center; margin-bottom:1.5rem;
-      font-size:1.75rem; font-family:'Montserrat',sans-serif;
-    }
-    .about p {
-      max-width:800px; margin:0 auto; text-align:center;
-      line-height:1.8;
-    }
+    .about h2 { text-align:center; margin-bottom:1.5rem; font-size:1.75rem; font-family:'Montserrat',sans-serif; }
+    .about p { max-width:800px; margin:0 auto; text-align:center; line-height:1.8; }
 
     /* Contact */
     .contact { padding:4rem 0; }
-    .contact h2 {
-      text-align:center; margin-bottom:1.5rem;
-      font-size:1.75rem; font-family:'Montserrat',sans-serif;
-    }
-    .contact-form {
-      max-width:500px; margin:0 auto; display:flex;
-      flex-direction:column; gap:1rem;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      padding:.75rem; border:1px solid #ccc;
-      border-radius:4px; font-size:1rem;
-    }
-    .contact-form button {
-      align-self:flex-start;
-      background:#E94B35; color:#fff; border:none;
-      padding:.75rem 1.5rem; border-radius:4px;
-      cursor:pointer; font-weight:600;
-    }
+    .contact h2 { text-align:center; margin-bottom:1.5rem; font-size:1.75rem; font-family:'Montserrat',sans-serif; }
+    .contact-form { max-width:500px; margin:0 auto; display:flex; flex-direction:column; gap:1rem; }
+    .contact-form input, .contact-form textarea { padding:.75rem; border:1px solid #ccc; border-radius:4px; font-size:1rem; }
+    .contact-form button { align-self:flex-start; background:#E94B35; color:#fff; border:none; padding:.75rem 1.5rem; border-radius:4px; cursor:pointer; font-weight:600; }
 
     /* Footer */
-    .footer {
-      background:#111; color:#fff;
-      display:flex; flex-wrap:wrap;
-      align-items:center; justify-content:space-between;
-      padding:2rem 0;
-    }
+    .footer { background:#111; color:#fff; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; padding:2rem 0; }
     .footer h3 { font-size:1.5rem; margin-bottom:.5rem; }
     .footer p { margin-bottom:1rem; }
-    .btn-footer {
-      background:#E94B35; color:#fff;
-      padding:.75rem 1.25rem; text-decoration:none;
-      font-weight:600; border-radius:4px;
-    }
+    .btn-footer { background:#E94B35; color:#fff; padding:.75rem 1.25rem; text-decoration:none; font-weight:600; border-radius:4px; }
 
     /* Responsive */
     @media (max-width:900px) {
-      .nav-menu { display:none;
-        position:absolute; top:70px; left:0; right:0;
-        background:#fff; flex-direction:column;
-      }
+      .nav-menu { display:none; position:absolute; top:70px; left:0; right:0; background:#fff; flex-direction:column; }
       .nav-menu.active { display:flex; }
       .nav-toggle { display:flex; }
       .cta-bar { display:block; }
@@ -231,7 +155,7 @@
           <li><a href="#bolge">Hizmet Bölgesi</a></li>
           <li><a href="#hakkimizda">Hakkımızda</a></li>
         </ul>
-        <button class="nav-toggle" aria-label="mobil menü toggle">
+        <button class="nav-toggle" aria-label="Mobil menüyü aç/kapat">
           <span></span><span></span><span></span>
         </button>
       </nav>
@@ -241,7 +165,7 @@
     </div>
   </header>
 
-  <!-- Mobil CTA -->
+  <!-- Mobil CTA Bar -->
   <div class="cta-bar">
     <a href="tel:05462067768">Hemen Ara: 0546 206 77 68</a>
   </div>
@@ -262,22 +186,30 @@
       <h2>Hizmetlerimiz</h2>
       <div class="services-grid">
         <div class="service-card">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Design Icons by Pictogrammers - https://github.com/Templarian/MaterialDesign/blob/master/LICENSE --><path fill="currentColor" d="M15 10h5.39l-3.33-4H15zm2.5 8.5c.39 0 .74-.13 1.04-.43S19 17.42 19 17c0-.39-.16-.74-.46-1.04s-.65-.46-1.04-.46c-.42 0-.77.16-1.07.46S16 16.61 16 17c0 .42.13.77.43 1.07s.65.43 1.07.43M6 18.5c.44 0 .8-.13 1.08-.43s.42-.65.42-1.07c0-.39-.14-.74-.42-1.04S6.44 15.5 6 15.5s-.8.16-1.08.46s-.42.65-.42 1.04c0 .42.14.77.42 1.07s.64.43 1.08.43M18 4l5 6v7h-2.5c0 .83-.31 1.53-.91 2.13c-.59.59-1.29.87-2.09.87c-.83 0-1.53-.28-2.12-.87c-.6-.6-.88-1.3-.88-2.13H9c0 .83-.3 1.53-.89 2.13c-.61.59-1.3.87-2.11.87s-1.5-.28-2.11-.87C3.3 18.53 3 17.83 3 17H1v-4h8.19L3 8.11V11H1V5h1l11 6.06V4z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M15 10h5.39l-3.33-4H15zm2.5 8.5c.39 0 .74-.13 1.04-.43S19 17.42 19 17c0-.39-.16-.74-.46-1.04s-.65-.46-1.04-.46c-.42 0-.77.16-1.07.46S16 16.61 16 17c0 .42.13.77.43 1.07s.65.43 1.07.43M6 18.5c.44 0 .8-.13 1.08-.43s.42-.65.42-1.07c0-.39-.14-.74-.42-1.04S6.44 15.5 6 15.5s-.8.16-1.08.46s-.42.65-.42 1.04c0 .42.14.77.42 1.07s.64.43 1.08.43M18 4l5 6v7h-2.5c0 .83-.31 1.53-.91 2.13c-.59.59-1.29.87-2.09.87c-.83 0-1.53-.28-2.12-.87c-.6-.6-.88-1.3-.88-2.13H9c0 .83-.3 1.53-.89 2.13c-.61.59-1.3.87-2.11.87s-1.5-.28-2.11-.87C3.3 18.53 3 17.83 3 17H1v-4h8.19L3 8.11V11H1V5h1l11 6.06V4z"/>
+          </svg>
           <h3>Çekici Hizmeti</h3>
           <p>Anında müdahale ile aracınızı güvenle taşıyoruz.</p>
         </div>
         <div class="service-card">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Design Icons by Pictogrammers - https://github.com/Templarian/MaterialDesign/blob/master/LICENSE --><path fill="currentColor" d="M4 3v3H1v14h22V6h-3V3h-6v3h-4V3zM3 8h18v10H3zm12 2v2h-2v2h2v2h2v-2h2v-2h-2v-2zM5 12v2h6v-2z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M4 3v3H1v14h22V6h-3V3h-6v3h-4V3zM3 8h18v10H3zm12 2v2h-2v2h2v2h2v-2h2v-2h-2v-2zM5 12v2h6v-2z"/>
+          </svg>
           <h3>Akü Takviye</h3>
           <p>Akünüz bitti mi? Hemen takviye ediyoruz.</p>
         </div>
         <div class="service-card">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Design Icons by Pictogrammers - https://github.com/Templarian/MaterialDesign/blob/master/LICENSE --><path fill="currentColor" d="m19.66 9.64l-.36-.94l1.86-.7c-.92-2.12-2.56-3.82-4.62-4.86l-.8 1.78l-.92-.42l.8-1.8C14.5 2.26 13.28 2 12 2c-1.06 0-2.08.22-3.04.5l.68 1.84l-.94.36L8 2.84c-2.12.92-3.82 2.56-4.86 4.62l1.78.8l-.42.92l-1.8-.8C2.26 9.5 2 10.72 2 12c0 1.06.22 2.08.5 3.04l1.84-.68l.36.94l-1.86.7c.92 2.12 2.56 3.82 4.62 4.86l.8-1.78l.92.42l-.8 1.8c1.12.44 2.34.7 3.62.7c1.06 0 2.08-.22 3.04-.5l-.68-1.84l.94-.36l.7 1.86c2.12-.92 3.82-2.56 4.86-4.62l-1.78-.8l.42-.92l1.8.8c.44-1.12.7-2.34.7-3.62c0-1.06-.22-2.08-.5-3.04zm-5.36 7.9c-3.06 1.26-6.58-.18-7.84-3.24s.18-6.58 3.24-7.84s6.58.18 7.84 3.24a5.986 5.986 0 0 1-3.24 7.84"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="currentColor" d="m19.66 9.64l-.36-.94l1.86-.7c-.92-2.12-2.56-3.82-4.62-4.86l-.8 1.78l-.92-.42l.8-1.8C14.5 2.26 13.28 2 12 2c-1.06 0-2.08.22-3.04.5l.68 1.84l-.94.36L8 2.84c-2.12.92-3.82 2.56-4.86 4.62l1.78.8l-.42.92l-1.8-.8C2.26 9.5 2 10.72 2 12c0 1.06.22 2.08.5 3.04l1.84-.68l.36.94l-1.86.7c.92 2.12 2.56 3.82 4.62 4.86l.8-1.78l.92.42l-.8 1.8c1.12.44 2.34.7 3.62.7c1.06 0 2.08-.22 3.04-.5l-.68-1.84l.94-.36l.7 1.86c2.12-.92 3.82-2.56 4.86-4.62l-1.78-.8l.42-.92l1.8.8c.44-1.12.7-2.34.7-3.62c0-1.06-.22-2.08-.5-3.04zm-5.36 7.9c-3.06 1.26-6.58-.18-7.84-3.24s.18-6.58 3.24-7.84s6.58.18 7.84 3.24a5.986 5.986 0 0 1-3.24 7.84"/>
+          </svg>
           <h3>Lastik Değişimi</h3>
           <p>Yedek lastik ile hızlı çözüm.</p>
         </div>
         <div class="service-card">
-         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Design Icons by Pictogrammers - https://github.com/Templarian/MaterialDesign/blob/master/LICENSE --><path fill="currentColor" d="M11 0v3h2V0zM7.88 1.46L6.46 2.87L8.59 5L10 3.58zm8.24 0L14 3.58L15.41 5l2.13-2.12zM12 5a2 2 0 0 0-2 2v1H6.5c-.66 0-1.22.42-1.42 1L3 15v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8l-2.08-6c-.2-.58-.76-1-1.42-1H14V7a2 2 0 0 0-2-2M6.5 9.5h11L19 14H5zm0 6.5A1.5 1.5 0 0 1 8 17.5A1.5 1.5 0 0 1 6.5 19A1.5 1.5 0 0 1 5 17.5A1.5 1.5 0 0 1 6.5 16m11 0a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M11 0v3h2V0zM7.88 1.46L6.46 2.87L8.59 5L10 3.58zm8.24 0L14 3.58L15.41 5l2.13-2.12zM12 5a2 2 0 0 0-2 2v1H6.5c-.66 0-1.22.42-1.42 1L3 15v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8l-2.08-6c-.2-.58-.76-1-1.42-1H14V7a2 2 0 0 0-2-2M6.5 9.5h11L19 14H5zm0 6.5A1.5 1.5 0 0 1 8 17.5A1.5 1.5 0 0 1 6.5 19A1.5 1.5 0 0 1 5 17.5A1.5 1.5 0 0 1 6.5 16m11 0a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5"/>
+          </svg>
           <h3>Yol Yardım</h3>
           <p>Kilitli kapı, yakıt ikmali ve daha fazlası.</p>
         </div>
@@ -317,18 +249,31 @@
     <section id="hakkimizda" class="about container">
       <h2>Hakkımızda</h2>
       <p>
-        BOBO Oto Yol Yardım, Çanakkale’nin Biga, Lapseki ve Çan ilçelerinde 7/24
-        araç kurtarma, akü takviye, lastik değişimi ve yol yardım hizmeti sunan
-        yerel bir firmadır. Misyonumuz: Yolda kalan herkesin bir telefon kadar yakınında olmak.
+        BOBO Oto Yol Yardım, Çanakkale’nin Biga, Lapseki ve Çan ilçelerinde 7/24 araç kurtarma,
+        akü takviye, lastik değişimi ve yol yardım hizmeti sunan yerel bir firmadır.
+        Misyonumuz: Yolda kalan herkese en hızlı ve güvenilir çözümü sunmak.
       </p>
     </section>
 
+    <!-- İletişim -->
+    <section id="iletisim" class="contact container">
+      <h2>İletişim & Biga Çekici Çağrı</h2>
+      <form class="contact-form" action="#" method="post">
+        <label for="isim">Adınız Soyadınız</label>
+        <input type="text" id="isim" name="isim" required>
+        <label for="telefon">Telefon</label>
+        <input type="tel" id="telefon" name="telefon" required>
+        <label for="mesaj">Mesajınız</label>
+        <textarea id="mesaj" name="mesaj" rows="4"></textarea>
+        <button type="submit" class="btn">Gönder</button>
+      </form>
+    </section>
   </main>
 
   <!-- Footer -->
   <footer class="footer container">
     <div>
-      <h3>24/7 Güvenli Yolculuklar</h3>
+      <h3>24/7 Biga Oto Yol Yardım & Çekici</h3>
       <p>Kesintisiz destek için hemen arayın.</p>
     </div>
     <a href="tel:05462067768" class="btn-footer">0546 206 77 68</a>
@@ -336,12 +281,9 @@
 
   <!-- Inline JS -->
   <script>
-    // Mobil menüyü toggle et
     const btnToggle = document.querySelector('.nav-toggle');
-    const menu     = document.querySelector('.nav-menu');
-    btnToggle.addEventListener('click', () => {
-      menu.classList.toggle('active');
-    });
+    const menu      = document.querySelector('.nav-menu');
+    btnToggle.addEventListener('click', () => menu.classList.toggle('active'));
   </script>
 
 </body>
