@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://boboyolyardim.com/sitemap.xml
